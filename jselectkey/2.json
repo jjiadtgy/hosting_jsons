@@ -1,0 +1,10 @@
+{
+  "col_nominal": "str0",
+  "col_nominal_struct": {
+    "sub_col0": 0
+  },
+  "col_not.nominal_struct": {
+    "sub_col0": 0
+  },
+  "some_col": false
+}
