@@ -1,0 +1,2 @@
+`col_nominal` STRING,
+`some_col` BOOLEAN

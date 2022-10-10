@@ -1,0 +1,4 @@
+`col_nominal` STRING,
+`col_nominal_struct` STRUCT<sub_col0: INTEGER>,
+`col_not.nominal_struct` STRUCT<sub_col0: INTEGER>,
+`some_col` BOOLEAN

@@ -1,0 +1,4 @@
+`col0` STRING,
+`col1` STRING,
+`col_applyOn` STRUCT<sub3: STRING, sub1: STRING, sub0: STRING, sub2: STRING>,
+`col2` STRING

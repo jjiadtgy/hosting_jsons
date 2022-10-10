@@ -1,0 +1,8 @@
+[
+  {
+    "col_applyOn": ["row0_e0", "row0_e1", "row0_e2", "row0_e3"]
+  },
+  {
+    "col_applyOn": ["row1_e0", "row1_e1"]
+  }
+]

@@ -1,0 +1,2 @@
+`col_applyOn` ARRAY<STRING>,
+`col_applyOn_0` STRING

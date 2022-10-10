@@ -1,0 +1,2 @@
+`col_applyOn` STRUCT<sub0: STRING>,
+`col_other` STRING

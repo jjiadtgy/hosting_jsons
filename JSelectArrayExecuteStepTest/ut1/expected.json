@@ -1,0 +1,14 @@
+[
+  {
+    "col0": "str0",
+    "col_applyOn_1": "row0_e1",
+    "col2": "str0",
+    "col3": "str0"
+  },
+  {
+    "col0": "str0",
+    "col_applyOn_1": null,
+    "col2": "str0",
+    "col3": "str0"
+  }
+]

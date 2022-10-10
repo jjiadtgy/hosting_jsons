@@ -1,0 +1,5 @@
+`col0` STRING,
+`col1` STRING,
+`sub2` STRING,
+`sub0` STRING,
+`col2` STRING

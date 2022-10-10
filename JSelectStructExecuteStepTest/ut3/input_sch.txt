@@ -1,0 +1,2 @@
+`col_applyOn` STRUCT<`col_duplicated`: STRING>,
+`col_duplicated` STRING

@@ -1,0 +1,3 @@
+`col_nominal_struct` STRUCT<sub_col0: INTEGER>,
+`col_nominal` STRING,
+`col_not.nominal_struct` STRUCT<sub_col0: INTEGER>
