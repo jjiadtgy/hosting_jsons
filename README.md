@@ -10,32 +10,32 @@
 - You can directly retrieve it via API using `Raw` feature from GitHub (for example [this](https://raw.githubusercontent.com/jjiadtgy/hosting_jsons/main/JSelectKeyExecuteStepTest/ut1/input.json))
 - Table parameters for each unit tests
 
-| JParsingStep   | UT  | Parameters                                                                                        |
-|----------------|-----|---------------------------------------------------------------------------------------------------|
-| JSelectKey     | ut1 | JSelectKey(selectedKeysAre = Array("col_nominal_struct", "col_nominal", "col_not.nominal_struct") |
-|                | ut2 | JSelectKey(selectedKeysAre = Array("col_non_existing")                                            |
-| JSelectStruct  | ut1 | JSelectStruct("col_applyOn", selectedKeysAre = Array("sub2", "sub0"))                             |
-|                | ut2 | JSelectStruct("col.applyOn", selectedKeysAre = Array("sub.0"))                                    |
-|                | ut3 | SelectStruct(applyOn = "col_applyOn", selectedKeysAre = Array("col_duplicated"))                  |
-|                | ut4 | JSelectStruct(applyOn = "col_applyOn", selectedKeysAre = Array("sub0"), keep = true)              |
-|                | ut5 | JSelectStruct(applyOn = "col_applyOn", selectedKeysAre = Array.empty)                             |
-|                | ut6 | JSelectStruct(applyOn = "NotExist", selectedKeysAre = Array("sub0"))                              |
-|                | ut7 | JSelectStruct(applyOn = "col_applyOn", selectedKeysAre = Array("NotExist"))                       |
-|                | ut8 | JSelectStruct(applyOn = "col_applyOn", selectedKeysAre = Array("sub0"))                           |
-| JSelectArray   | ut1 | JSelectArray("col_applyOn", 1)                                                                    |
-|                | ut2 | JSelectArray("col_applyOn", -1)                                                                   |
-|                | ut3 | JSelectArray("col_applyOn", 0, keep = true)                                                       |
-|                | ut4 | JSelectArray("NotExist", 0)                                                                       |
-|                | ut5 | JSelectArray("col_applyOn", 0)                                                                    |
-| JExplodeStruct | ut1 | JExplodeStruct("col_applyOn")                                                                     |
-|                | ut2 | JExplodeStruct("col.applyOn")                                                                     |
-|                | ut3 | JExplodeStruct("col_applyOn")                                                                     |
-|                | ut4 | JExplodeStruct("col_applyOn", keep = true)                                                        |
-|                | ut5 | JExplodeStruct("col_applyOn")                                                                     |
-|                | ut6 | JExplodeStruct("NotExist")                                                                        |
-|                | ut7 | JExplodeStruct("col_applyOn")                                                                     |
-| JExplodeArray  | ut1 | JExplodeArray("col_applyOn")                                                                      |
-|                | ut2 | JExplodeArray("col_applyOn")                                                                      |
-|                | ut3 | JExplodeArray("col_applyOn", keep = true)                                                         |
-|                | ut4 | JExplodeArray("NotExist")                                                                         |
-|                | ut5 | JExplodeArray("col_applyOn")                                                                      |
+| JParsingStep   | UT                                                                                       | Parameters                                                                                        |
+|----------------|------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| JSelectKey     | **UT1** - Only selecting the root "JSON keys"                                            | JSelectKey(selectedKeysAre = Array("col_nominal_struct", "col_nominal", "col_not.nominal_struct") |
+|                | **UT2** - Exception on non-existing columns                                              | JSelectKey(selectedKeysAre = Array("col_non_existing")                                            |
+| JSelectStruct  | **UT1** - Nominal case with existing `applyOn` & all existing `selectedKeysAre` key(s)   | JSelectStruct("col_applyOn", selectedKeysAre = Array("sub2", "sub0"))                             |
+|                | **UT2** - Works even with `applyOn` and `selectedKeysAre` with accessor character(s) "." | JSelectStruct("col.applyOn", selectedKeysAre = Array("sub.0"))                                    |
+|                | **UT3** - Provoke duplicated column names but managed                                    | SelectStruct(applyOn = "col_applyOn", selectedKeysAre = Array("col_duplicated"))                  |
+|                | **UT4** - Testing keep `true`                                                            | JSelectStruct(applyOn = "col_applyOn", selectedKeysAre = Array("sub0"), keep = true)              |
+|                | **UT5** - Empty `selectedKeysAre`                                                        | JSelectStruct(applyOn = "col_applyOn", selectedKeysAre = Array.empty)                             |
+|                | **UT6** - Missing `applyOn` column in the DataFrame causing exception                    | JSelectStruct(applyOn = "NotExist", selectedKeysAre = Array("sub0"))                              |
+|                | **UT7** - Missing one of the `selectedKeysAre` key in the DataFrame causing exception    | JSelectStruct(applyOn = "col_applyOn", selectedKeysAre = Array("NotExist"))                       |
+|                | **UT8** - `applyOn` not a struct                                                         | JSelectStruct(applyOn = "col_applyOn", selectedKeysAre = Array("sub0"))                           |
+| JSelectArray   | **UT1** - Nominal case & Not reachable `index`                                           | JSelectArray("col_applyOn", 1)                                                                    |
+|                | **UT2** - Negative index as not reachable `index`                                        | JSelectArray("col_applyOn", -1)                                                                   |
+|                | **UT3** - Testing keep `true` for `JSelectArray`                                         | JSelectArray("col_applyOn", 0, keep = true)                                                       |
+|                | **UT4** - Missing `applyOn` column in the DataFrame causing exception                    | JSelectArray("NotExist", 0)                                                                       |
+|                | **UT5** - `applyOn` not an array                                                         | JSelectArray("col_applyOn", 0)                                                                    |
+| JExplodeStruct | **UT1** - Nominal case with existing `applyOn`                                           | JExplodeStruct("col_applyOn")                                                                     |
+|                | **UT2** - Works even with `applyOn` and sub-columns with accessor character(s) "."       | JExplodeStruct("col.applyOn")                                                                     |
+|                | **UT3** - Provoke duplicated column names but managed (JExplodeStruct)                   | JExplodeStruct("col_applyOn")                                                                     |
+|                | **UT4** - Testing keep `true` for `JExplodeStruct`                                       | JExplodeStruct("col_applyOn", keep = true)                                                        |
+|                | **UT5** - Empty sub-columns                                                              | JExplodeStruct("col_applyOn")                                                                     |
+|                | **UT6** - Missing `applyOn` column in the DataFrame causing exception (JExplodeStruct)   | JExplodeStruct("NotExist")                                                                        |
+|                | **UT7** - `applyOn` not a struct (JExplodeStruct)                                        | JExplodeStruct("col_applyOn")                                                                     |
+| JExplodeArray  | **UT1** - Nominal case with any elements & multiple rows                                 | JExplodeArray("col_applyOn")                                                                      |
+|                | **UT2** - `applyOn` is `null`                                                            | JExplodeArray("col_applyOn")                                                                      |
+|                | **UT3** - Testing keep `true` for `JExplodeArray`                                        | JExplodeArray("col_applyOn", keep = true)                                                         |
+|                | **UT4** - Missing `applyOn` column in the DataFrame causing exception                    | JExplodeArray("NotExist")                                                                         |
+|                | **UT5** - `applyOn` not an array                                                         | JExplodeArray("col_applyOn")                                                                      |
