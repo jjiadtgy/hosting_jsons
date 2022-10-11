@@ -1,6 +1,12 @@
 # Hosting JSONs
 
 - Objective make each of couple input / expected work
+  - Each ut contains
+    - `input.json` => The input JSON
+    - `input_sch.txt` => Do not mind this
+    - `expected.json` => The expected JSON & DataFrame view
+    - `expected_sch.txt` => The expected DataFrame columns types
+  - _If there is no `expected.json` and `expected_sch.txt` the user must be alert that his step is invalid_
 - You can directly retrieve it via API using `Raw` feature from GitHub (for example [this](https://raw.githubusercontent.com/jjiadtgy/hosting_jsons/main/JSelectKeyExecuteStepTest/ut1/input.json))
 - Table parameters for each unit tests
 
